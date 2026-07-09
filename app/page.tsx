@@ -4,20 +4,17 @@ import { useState } from "react";
 import Image from 'next/image';
 
 export default function Home() {
-  // จำลองข้อมูลสไลเดอร์แบนเนอร์ด้านบน
-  const [currentBanner] = useState("https://img5.pic.in.th/file/secure-sv1/RMB-logo.png");
-
   // ข้อมูลเมนูกลาง 9 ช่องตามรูปภาพของคุณ
   const gridMenus = [
-    { id: 1, title: "กงล้อ", icon: "🎡", color: "linear-gradient(135deg, #112614 0%, #071409 100%)" },
-    { id: 2, title: "เครดิตฟรี", icon: "🎰", color: "linear-gradient(135deg, #112614 0%, #071409 100%)" },
-    { id: 3, title: "กรอกโค้ด", icon: "🎫", color: "linear-gradient(135deg, #112614 0%, #071409 100%)" },
-    { id: 4, title: "รับแต้มฟรี", icon: "💎", color: "linear-gradient(135deg, #112614 0%, #071409 100%)" },
-    { id: 5, title: "กล่องสุ่ม", icon: "🎁", color: "linear-gradient(135deg, #112614 0%, #071409 100%)" },
-    { id: 6, title: "เช็คอิน", icon: "📅", color: "linear-gradient(135deg, #112614 0%, #071409 100%)" },
-    { id: 7, title: "Ranking", icon: "🏆", color: "linear-gradient(135deg, #112614 0%, #071409 100%)" },
-    { id: 8, title: "ชวนเพื่อน", icon: "👥", color: "linear-gradient(135deg, #112614 0%, #071409 100%)" },
-    { id: 9, title: "ร้านค้า", icon: "🛍️", color: "linear-gradient(135deg, #112614 0%, #071409 100%)" },
+    { id: 1, title: "กงล้อ", icon: "🎡" },
+    { id: 2, title: "เครดิตฟรี", icon: "🎰" },
+    { id: 3, title: "กรอกโค้ด", icon: "🎫" },
+    { id: 4, title: "รับแต้มฟรี", icon: "💎" },
+    { id: 5, title: "กล่องสุ่ม", icon: "🎁" },
+    { id: 6, title: "เช็คอิน", icon: "📅" },
+    { id: 7, title: "Ranking", icon: "🏆" },
+    { id: 8, title: "ชวนเพื่อน", icon: "👥" },
+    { id: 9, title: "ร้านค้า", icon: "🛍️" },
   ];
 
   return (
@@ -32,13 +29,7 @@ export default function Home() {
       overflowX: 'hidden',
       color: '#ffffff'
     }}>
-      <style jsx global>{`
-        button, a { transition: all 0.15s ease-in-out; }
-        button:active, a:active { transform: scale(0.96); }
-        .grid-item:hover { border-color: #00e65b !important; box-shadow: 0 0 15px rgba(0, 230, 64, 0.2); }
-      `}</style>
-
-      <div style={{ width: '100%', maxWidth: '480px', paddingBottom: '120px', position: 'relative' }}>
+      <div style={{ width: '100%', maxWidth: '480px', paddingBottom: '140px', position: 'relative' }}>
         
         {/* --- HEADER NAVIGATION (แถบบนสุด) --- */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px', background: 'rgba(2, 6, 3, 0.5)', backdropFilter: 'blur(10px)' }}>
@@ -56,8 +47,8 @@ export default function Home() {
         </div>
 
         {/* --- MARQUEE ANNOUNCEMENT (ข้อความวิ่ง) --- */}
-        <div style={{ background: '#000', padding: '6px 12px', fontSize: '0.8rem', color: '#a3ffb4', borderY: '1px solid rgba(0,230,64,0.2)', display: 'flex', gap: '10px', overflow: 'hidden' }}>
-          <span style={{ color: '#ffcc00', fontWeight: 'bold', shrink: 0 }}>ประกาศ :</span>
+        <div style={{ background: '#000', padding: '6px 12px', fontSize: '0.8rem', color: '#a3ffb4', display: 'flex', gap: '10px', overflow: 'hidden' }}>
+          <span style={{ color: '#ffcc00', fontWeight: 'bold', flexShrink: 0 }}>ประกาศ :</span>
           <marquee scrollamount="4">ยินดีต้อนรับสู่ NEKO789 ระบบฝาก-ถอน อัตโนมัติ รวดเร็ว ทันใจ บริการท่านตลอด 24 ชั่วโมง 👋</marquee>
         </div>
 
@@ -88,7 +79,6 @@ export default function Home() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 key={menu.id}
-                className="grid-item"
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
@@ -96,14 +86,14 @@ export default function Home() {
                   justifyContent: 'center',
                   height: '110px',
                   borderRadius: '14px',
-                  background: menu.color,
+                  background: 'linear-gradient(135deg, #112614 0%, #071409 100%)',
                   border: '1px solid rgba(0, 230, 64, 0.15)',
                   textDecoration: 'none',
                   cursor: 'pointer',
                   boxShadow: 'inset 0 1px 2px rgba(255,255,255,0.05)'
                 }}
               >
-                <span style={{ fontSize: '2.2rem', marginBottom: '8px', display: 'block', filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))' }}>
+                <span style={{ fontSize: '2.2rem', marginBottom: '8px', display: 'block' }}>
                   {menu.icon}
                 </span>
                 <span style={{ fontSize: '0.85rem', color: '#e2e8f0', fontWeight: 600 }}>
@@ -114,13 +104,13 @@ export default function Home() {
           </div>
         </div>
 
-        {/* --- FLOATING FLOATING ACTION BUTTONS (ปุ่ม Line & Telegram ขวาล่างตามรูป) --- */}
-        <div style={{ position: 'fixed', bottom: '90px', right: 'calc(50% - 225px)', display: 'flex', flexDirection: 'column', gap: '10px', zIndex: 99, paddingRight: '16px' }}>
-          <a href="https://lin.ee/SjNoHwy" target="_blank" rel="noopener noreferrer" style={{ width: '42px', height: '42px', borderRadius: '50%', background: '#06c755', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', textDecoration: 'none', fontSize: '1.1rem', fontWeight: 'bold', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}>L</a>
-          <a href="https://neko789.top/wallet" target="_blank" rel="noopener noreferrer" style={{ width: '42px', height: '42px', borderRadius: '50%', background: '#229ED9', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', textDecoration: 'none', fontSize: '1.1rem', fontWeight: 'bold', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}>T</a>
+        {/* --- FLOATING ACTION BUTTONS (ปุ่มติดต่อ ขวาล่าง) --- */}
+        <div style={{ position: 'fixed', bottom: '90px', right: '16px', display: 'flex', flexDirection: 'column', gap: '10px', zIndex: 99 }}>
+          <a href="https://lin.ee/SjNoHwy" target="_blank" rel="noopener noreferrer" style={{ width: '45px', height: '45px', borderRadius: '50%', background: '#06c755', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', textDecoration: 'none', fontSize: '1rem', fontWeight: 'bold', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}>LINE</a>
+          <a href="https://neko789.top/wallet" target="_blank" rel="noopener noreferrer" style={{ width: '45px', height: '45px', borderRadius: '50%', background: '#229ED9', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 'bold', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}>TELE</a>
         </div>
 
-        {/* --- FOOTER NAVIGATION (เมนูด้านล่างสุด 4 ปุ่มหลักแบบในรูป) --- */}
+        {/* --- FOOTER NAVIGATION (เมนูด้านล่างสุด 4 ปุ่มหลัก) --- */}
         <div style={{
           position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)',
           width: '100%', maxWidth: '480px',
