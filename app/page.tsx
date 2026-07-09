@@ -31,7 +31,8 @@ export default function Home() {
             <a href="https://neko789.top/wallet" target="_blank" rel="noopener noreferrer" style={{textDecoration:"none",background:"linear-gradient(135deg, #cc9933 0%, #996600 100%)",color:"#fff",fontSize:"0.85rem",fontWeight:700,padding:"8px 16px",borderRadius:"20px",border:"1px solid #ffcc66"}}>
               เข้าสู่ระบบ
             </a>
-            <a href="https://neko789.top/wallet" target="_blank" rel="noopener noreferrer" style={{textDecoration:"none",background:"linear-gradient(135deg, #00e65b 0%, #00802b 100%)",color:"#fff",fontSize:"0.85rem",fontWeight:700,padding:"8px 16px",borderRadius:"20px",border:"1px solid #a3ffb4"}}>
+            {/* ปุ่มสมัครสมาชิกเด้งไปไลน์ออฟฟิเชียล */}
+            <a href="https://lin.ee/SjNoHwy" target="_blank" rel="noopener noreferrer" style={{textDecoration:"none",background:"linear-gradient(135deg, #00e65b 0%, #00802b 100%)",color:"#fff",fontSize:"0.85rem",fontWeight:700,padding:"8px 16px",borderRadius:"20px",border:"1px solid #a3ffb4"}}>
               สมัครสมาชิก
             </a>
           </div>
@@ -85,6 +86,7 @@ export default function Home() {
 
         {/* FLOATING BUTTONS */}
         <div style={{position:"fixed",bottom:"90px",right:"16px",display:"flex",flexDirection:"column",gap:"10px",zIndex:99}}>
+          {/* ปุ่มไลน์ขวาล่างเด้งไปไลน์ออฟฟิเชียล */}
           <a href="https://lin.ee/SjNoHwy" target="_blank" rel="noopener noreferrer" style={{width:"45px",height:"45px",borderRadius:"50%",background:"#06c755",display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",textDecoration:"none",fontSize:"1rem",fontWeight:"bold",boxShadow:"0 4px 12px rgba(0,0,0,0.3)"}}>LINE</a>
           <a href="https://neko789.top/wallet" target="_blank" rel="noopener noreferrer" style={{width:"45px",height:"45px",borderRadius:"50%",background:"#229ED9",display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",textDecoration:"none",fontSize:"0.9rem",fontWeight:"bold",boxShadow:"0 4px 12px rgba(0,0,0,0.3)"}}>TELE</a>
         </div>
