@@ -31,7 +31,21 @@ export default function Home() {
       fontFamily: "sans-serif",
       overflowX: 'hidden'
     }}>
-      <div style={{ width: '100%', maxWidth: '480px', padding: '24px', paddingBottom: '120px' }}>
+      {/* เพิ่ม CSS พื้นฐานสำหรับ Effect การกดลิงก์ให้นุ่มนวลขึ้น */}
+      <style jsx global>{`
+        a {
+          transition: all 0.2s ease-in-out;
+        }
+        a:hover {
+          opacity: 0.9;
+          transform: translateY(-1px);
+        }
+        a:active {
+          transform: translateY(1px);
+        }
+      `}</style>
+
+      <div style={{ width: '100%', maxWidth: '480px', padding: '24px', paddingBottom: '140px' }}>
         
         {/* --- LOGO & HEADER --- */}
         <div style={{ textAlign: 'center', marginBottom: '35px' }}>
@@ -91,9 +105,10 @@ export default function Home() {
             <span>{"โอกาสทีมเยือน "}{liveStats.a_win}{"%"}</span>
           </div>
 
+          {/* ปรับให้ใช้ flex แตกสัดส่วนตามตัวเลข เพื่อความแม่นยำในการแสดงผลหลอดสถิติ */}
           <div style={{ height: '10px', backgroundColor: '#030a05', borderRadius: '999px', overflow: 'hidden', display: 'flex', boxShadow: 'inset 0 1px 4px rgba(0,0,0,0.6)' }}>
-            <div style={{ background: 'linear-gradient(90deg, #00591e, #00e65b)', height: '100%', width: `${liveStats.h_win}%` }}></div>
-            <div style={{ background: 'linear-gradient(90deg, #0044ff, #00f0ff)', height: '100%', width: `${liveStats.a_win}%`, boxShadow: '0 0 12px #00f0ff' }}></div>
+            <div style={{ background: 'linear-gradient(90deg, #00591e, #00e65b)', height: '100%', flex: liveStats.h_win }}></div>
+            <div style={{ background: 'linear-gradient(90deg, #0044ff, #00f0ff)', height: '100%', flex: liveStats.a_win, boxShadow: '0 0 12px #00f0ff' }}></div>
           </div>
         </div>
 
@@ -125,7 +140,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* --- FOOTER NAVIGATION (แบ่งเป็น 2 เมนูด้านล่างซ้าย-ขวา เท่ากันสวยงาม) --- */}
+        {/* --- FOOTER NAVIGATION --- */}
         <div style={{
           position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)',
           width: '100%', maxWidth: '480px',
