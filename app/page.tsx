@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from "react";
-import Image from 'next/image';
 
 export default function Home() {
   // ข้อมูลเมนูกลาง 9 ช่องตามรูปภาพของคุณ
@@ -29,6 +28,20 @@ export default function Home() {
       overflowX: 'hidden',
       color: '#ffffff'
     }}>
+      {/* ฝัง CSS สำหรับตัวอักษรวิ่งสไลด์ เพื่อให้ผ่านตัวตรวจ TypeScript */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(100%); }
+          100% { transform: translateX(-100%); }
+        }
+        .marquee-text {
+          display: inline-block;
+          white-space: nowrap;
+          padding-left: 100%;
+          animation: marquee 15s linear infinite;
+        }
+      `}</style>
+
       <div style={{ width: '100%', maxWidth: '480px', paddingBottom: '140px', position: 'relative' }}>
         
         {/* --- HEADER NAVIGATION (แถบบนสุด) --- */}
@@ -46,10 +59,14 @@ export default function Home() {
           </div>
         </div>
 
-        {/* --- MARQUEE ANNOUNCEMENT (ข้อความวิ่ง) --- */}
-        <div style={{ background: '#000', padding: '6px 12px', fontSize: '0.8rem', color: '#a3ffb4', display: 'flex', gap: '10px', overflow: 'hidden' }}>
-          <span style={{ color: '#ffcc00', fontWeight: 'bold', flexShrink: 0 }}>ประกาศ :</span>
-          <marquee scrollamount="4">ยินดีต้อนรับสู่ NEKO789 ระบบฝาก-ถอน อัตโนมัติ รวดเร็ว ทันใจ บริการท่านตลอด 24 ชั่วโมง 👋</marquee>
+        {/* --- MARQUEE ANNOUNCEMENT (ข้อความวิ่งแบบแก้บั๊กผ่าน TypeScript) --- */}
+        <div style={{ background: '#000', padding: '6px 12px', fontSize: '0.8rem', color: '#a3ffb4', display: 'flex', alignItems: 'center', gap: '10px', overflow: 'hidden', position: 'relative' }}>
+          <span style={{ color: '#ffcc00', fontWeight: 'bold', flexShrink: 0, background: '#000', zIndex: 2, paddingRight: '5px' }}>ประกาศ :</span>
+          <div style={{ overflow: 'hidden', width: '100%', position: 'relative' }}>
+            <div className="marquee-text">
+              ยินดีต้อนรับสู่ NEKO789 ระบบฝาก-ถอน อัตโนมัติ รวดเร็ว ทันใจ บริการท่านตลอด 24 ชั่วโมง 👋
+            </div>
+          </div>
         </div>
 
         {/* --- BANNER SLIDER (พื้นที่แบนเนอร์ดีลเด็ด) --- */}
